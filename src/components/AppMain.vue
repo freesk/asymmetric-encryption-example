@@ -18,7 +18,7 @@
         </div>
 
         <div class="mb-8">
-          <input type="file" @change="upload1" />
+          <input type="file" @change="upload" />
         </div>
 
         <button
@@ -116,13 +116,13 @@ export default {
       this.publicKey = publicKey;
       this.privateKey = privateKey;
     },
-    async upload1(e) {
+    async upload(e) {
       this.src1 = await convertBase64(e.target.files[0]);
     },
-    async encrypt() {
+    encrypt() {
       this.encrypted = crypt.encrypt(this.publicKey, this.src1);
     },
-    async decrypt() {
+    decrypt() {
       const decrypted = crypt.decrypt(this.privateKey, this.encrypted);
       this.src2 = decrypted.message;
     },
