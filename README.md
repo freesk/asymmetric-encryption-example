@@ -4,6 +4,8 @@ This demo app demonstrates the RSA algorithm. You can upload an image and encryp
 
 To test it make sure you have two windows/instances where one acts as the encrypting part while the other is the decrypting part.
 
+[Example](https://www.screencast.com/t/OgKe5TPaaa)
+
 ## Project setup
 
 ```

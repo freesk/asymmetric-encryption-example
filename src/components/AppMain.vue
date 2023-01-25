@@ -110,9 +110,6 @@ export default {
       privateKey: null,
     };
   },
-  props: {
-    msg: String,
-  },
   methods: {
     async createKeys() {
       const { publicKey, privateKey } = await rsa.generateKeyPairAsync();
