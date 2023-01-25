@@ -116,20 +116,17 @@ export default {
   methods: {
     async createKeys() {
       const { publicKey, privateKey } = await rsa.generateKeyPairAsync();
-      this.publicKey = JSON.stringify(publicKey);
-      this.privateKey = JSON.stringify(privateKey);
+      this.publicKey = publicKey;
+      this.privateKey = privateKey;
     },
     async upload1(e) {
       this.src1 = await convertBase64(e.target.files[0]);
     },
     async encrypt() {
-      this.encrypted = crypt.encrypt(JSON.parse(this.publicKey), this.src1);
+      this.encrypted = crypt.encrypt(this.publicKey, this.src1);
     },
     async decrypt() {
-      const decrypted = crypt.decrypt(
-        JSON.parse(this.privateKey),
-        this.encrypted
-      );
+      const decrypted = crypt.decrypt(this.privateKey, this.encrypted);
       this.src2 = decrypted.message;
     },
   },
